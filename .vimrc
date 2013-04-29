@@ -9,8 +9,14 @@ if &diff
     colorscheme darkspectrum
 endif
 
+" Better colorscheme for HTML.
+" autocmd FileType html,htmldjango colorscheme molokai
+
 " Syntax color.
 syntax on
+
+" File path on title.
+set title
 
 " Line numbering.
 set number
@@ -78,19 +84,13 @@ autocmd BufReadPost *
     \ endif
 
 " JS and HTML files should only have 2 spaces indentation.
-autocmd FileType javascript,html set shiftwidth=2
-autocmd FileType javascript,html set tabstop=2
+autocmd FileType javascript,html,htmldjango set shiftwidth=2
+autocmd FileType javascript,html,htmldjango set tabstop=2
 
-" Exceptions to rule above.
-autocmd BufRead,BufNewFile ~/Montele/*.{js,html} setl shiftwidth=4 tabstop=4
-autocmd BufRead,BufNewFile ~/Almi/*.{js,html} setl shiftwidth=4 tabstop=4
-autocmd BufRead,BufNewFile ~/SGO/*.{js,html} setl shiftwidth=4 tabstop=4
-autocmd BufRead,BufNewFile ~/Exofi/*.{js,html} setl shiftwidth=4 tabstop=4
-
-" Colorcolumn for python files.
-autocmd FileType python set colorcolumn=80
-autocmd FileType python set textwidth=79
-autocmd FileType python highlight ColorColumn ctermbg=Red
+" Colorcolumn for python and javascript files.
+autocmd FileType python,javascript set colorcolumn=80
+autocmd FileType python,javascript set textwidth=79
+autocmd FileType python,javascript highlight ColorColumn ctermbg=darkred
 
 " 72 char limit for Git Commit Message
 autocmd FileType gitcommit set textwidth=72
